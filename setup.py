@@ -1,20 +1,30 @@
 from setuptools import setup
 
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
 setup(
+
     # Needed to silence warnings (and to be a worthwhile package)
     name='ColabGitlabSetup',
     url='https://github.com/LaurenceMolloy/colab_gitlab_setup',
     author='Laurence Molloy',
     author_email='laurence.molloy@gmail.com',
-    # Needed to actually package something
     packages=['colab_gitlab_setup'],
-    # Needed for dependencies
-    install_requires=['os','subprocess','re','google.colab'],
-    # *strongly* suggested for sharing
-    version='0.1',
-    # The license can be anything you like
+    install_requires=['google.colab'],
+    version = "0.0.1",
     license='MIT',
+    keywords='colaboratory colab gitlab ssh"
     description='A simple API for linking Google Colab Notebooks to Gitlab using SSH',
-    # We will also need a readme eventually (there will be a warning)
-    #long_description=open('README.txt').read(),
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    #package_dir={"": "src"},
+    #packages=setuptools.find_packages(where="src"),
+    python_requires=">=3.6",
 )
